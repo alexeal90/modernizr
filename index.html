@@ -3,7 +3,45 @@
 	<head>
 		<meta charset="utf-8">
 		<title>prueba modernizr</title>
+		<script src= "https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js">
+		</script>
 	</head>
 	<body>
+		<script>
+			function comprueba(){
+				var canv= document.getElementById("canvas");
+				var vid= document.getElementById("video");
+				var vidogg= document.getElementById("videogg");
+				var lstrg= document.getElementById("localstrg");
+				var offln= document.getElementById("offline");
+				var geo= document.getElementById("geo");
+				if (!Modernizr.canvas){
+					canv.style.visibility="hidden";
+				}
+				if (!Modernizr.video){
+					vid.style.visibility="hidden";
+				}
+				if (!Modernizr.video.ogg){
+					vidogg.style.visibility="hidden";
+				}
+				if (!Modernizr.localstorage){
+					lstrg.style.visibility="hidden";
+				}
+				if (!Modernizr.applicationcache){
+					offln.style.visibility="hidden";
+				}
+				if (!Modernizr.geolocation){
+					geo.style.visibility="hidden";
+				}
+			};
+		</script>
+		<p>soporta: </p>
+		<p id="canvas">canvas</p>
+		<p id="video">video</p>
+		<p id="videogg">video ogg</p>
+		<p id="localstrg">local storage</p>
+		<p id="offline">off-line</p>
+		<p id="geo">geolocation</p>
+		<script>comprueba();</script>
 	</body>
 </html>
